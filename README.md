@@ -98,6 +98,7 @@ The hypothesis is that a deep learning model can learn to map each word-level im
 ### Dataset
 
 The MJSynth dataset (also known as Synth90k) contains approximately 9 million synthetic images of cropped words rendered with diverse fonts, backgrounds, and distortions to simulate real-world text recognition scenarios. In this project, it has been downloaded from Hugging Face (priyank-m/MJSynth_text_recognition · Datasets at Hugging Face).
+
 <img width="455" height="145" alt="image" src="https://github.com/user-attachments/assets/5798f0a7-b237-4471-b20f-07e118e17477" />
  
 #### Sampling and Storage
@@ -134,26 +135,12 @@ The model is trained using Connectionist Temporal Classification (CTC) loss, whi
 This architecture has proven to be robust and stable, providing consistently good results in the experiments.
 
 <img width="372" height="434" alt="image" src="https://github.com/user-attachments/assets/03b635f3-41a3-4da1-849e-95fcf2772626" />
+
 https://arxiv.org/pdf/1507.05717
 
-**Type**	                **Configurations**
-Transcription	           -
-Bidirectional-LSTM	      #hidden units: 256
-Bidirectional-LSTM	      #hidden units: 256
-Map-to-Sequence	         -
-AdaptiveAvgPool2d	       Output size: (1, None)
-MaxPooling	              Window: (2,1), stride: (2,1)
-BatchNormalization	      512 channels
-ReLU	                    - 
-Convolution	             #maps:512, k:3×3, s:1, p:1
-MaxPooling	              Window: (2,1), stride: (2,1)
-Convolution	             #maps:256, k:3×3, s:1, p:1
-Convolution	             #maps:256, k:3×3, s:1, p:1
-MaxPooling	              Window:2×2, stride:2
-Convolution	             #maps:128, k:3×3, s:1, p:1
-MaxPooling	              Window:2×2, stride:2
-Convolution	             #maps:64, k:3×3, s:1, p:1
-Input	                   128 × 32 grayscale image
+
+<img width="227" height="275" alt="image" src="https://github.com/user-attachments/assets/5de1c7d2-16df-47d0-8188-f113a2b97d6d" />
+
 
 
 #### Img2Seq: CNN + Attention + CTC Loss
@@ -180,7 +167,9 @@ Word accuracy @ k measures the proportion of word predictions that match the gro
 
 ### Results 
 
+
 <img width="865" height="548" alt="image" src="https://github.com/user-attachments/assets/92b5431b-d1b2-4ab7-8f1d-05b99dfd0181" />
+
 
 #### Number of Parameters
 
